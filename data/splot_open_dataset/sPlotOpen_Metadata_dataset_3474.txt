@@ -1,0 +1,140 @@
+## sPlotOpen – An environmentally-balanced, open-access, global dataset of vegetation plots
+## Accompanying the paper of same title, by Sabatini FM, Lenoir J, et al. (2021) - Global Ecology and Biogeography
+
+## Archive content
+sPlotOpen_Metadata_dataset3474.txt (this file)
+sPlotOpen_CWM_CWV.txt
+sPlotOpen_DT.txt
+sPlotOpen_header.txt
+sPlotOpen_metadata.txt
+sPlotOpen.RData
+sPlotOpen_references.bib
+Demo.pdf
+
+
+## File description
+sPlotOpen_Metadata_dataset3474.txt  - File describing the dataset 
+sPlotOpen_CWM_CWV.txt               - Community Weighted Means and Community Weighted Variance of all vegetation plots  
+sPlotOpen_DT.txt                    - List of species and relative cover in each vegetation plot  
+sPlotOpen_header.txt                - Plot level information
+sPlotOpen_metadata.txt              - Plot level metadata
+sPlotOpen.RData                     - RData containing all tables above
+sPlotOpen_references.bib            - Reference list in BibTeX format
+Demo.pdf                            - A Notebook illustrating how sPlotOpen data can be imported and selected in R
+
+
+All text files use the encoding: UTF-8.
+Please note that all .txt files should be opened as tab-delimited (not comma-delimited) text - the values in some variables are strings that contain commas.
+
+
+## Description of fields for data
+Missing values are indicated with the 'NA' placeholder in R.
+All functional traits were log e transformed before calculating community weighted means and variances.
+
+# CWM_CWV.txt
+   Variables                    Data type      Unit         Description
+ 1 PlotObservationID            integer                     Plot identifier provided by Turboveg 3, unique for each plot.
+ 2 TraitCoverage_cover          double                      Proportion of the species’ relative cover for which functional trait is available
+ 3 Species_richness             integer                     Number of species occurring in plot
+ 4 TraitCoverage_pa             double                      Proportion of species with trait information.
+ 5 LeafArea_CWM                 double         mm^2         Community Weighted Mean - Leaf area
+ 6 StemDens_CWM                 double         g/cm^3       Community Weighted Mean - Stem specific density (SSD) or wood density (stem dry mass per stem fresh volume)
+ 7 SLA_CWM                      double         m^2/kg       Community Weighted Mean - Specific leaf area
+ 8 LeafC_perdrymass_CWM         double         mg/g         Community Weighted Mean - Leaf carbon (C) content per leaf dry mass 
+ 9 LeafN_CWM                    double         mg/g         Community Weighted Mean - Leaf nitrogen (N) content per leaf dry mass 
+ 10 LeafP_CWM                   double         mg/g         Community Weighted Mean - Leaf phosphorus (P) content per leaf dry mass 
+ 11 PlantHeight_CWM             double         m            Community Weighted Mean - Plant height (vegetative + generative) 
+ 12 SeedMass_CWM                double         mg           Community Weighted Mean - Seed dry mass 
+ 13 Seed_length_CWM             double         mm           Community Weighted Mean - Seed length 
+ 14 LDMC_CWM                    double         g/g          Community Weighted Mean - Leaf dry mass per leaf fresh mass (leaf dry matter content, LDMC) 
+ 15 LeafNperArea_CWM            double         g/m^-2       Community Weighted Mean - Leaf nitrogen (N) content per leaf area 
+ 16 LeafNPratio_CWM             double         g/g          Community Weighted Mean - Leaf nitrogen to phosphorus (N/P) ratio
+ 17 Leaf_delta_15N_CWM          double         per million  Community Weighted Mean - Leaf nitrogen (N) isotope signature (delta 15N) 
+ 18 Seed_num_rep_unit_CWM       double                      Community Weighted Mean - Seed number per reproduction unit
+ 19 Leaffreshmass_CWM           double         g            Community Weighted Mean - Leaf fresh mass 
+ 20 Stem_cond_dens_CWM          double         mm^-2        Community Weighted Mean - Stem conduit density (vessels and tracheids)
+ 21 Disp_unit_leng_CWM          double         mm           Community Weighted Mean - Dispersal unit length 
+ 22 Wood_vessel_length_CWM      double         μm           Community Weighted Mean - Wood vessel element length; stem conduit (vessel and tracheids) element length 
+ ### Same as above, but Community Weighted Variance 
+ 23 LeafArea_CWV                double         mm^2         Community Weighted Variance - Leaf area 
+ ...
+
+
+# DT.txt
+   Variables                    Data type   Description
+ 1 PlotObservationID            integer     Plot identifier provided by Turboveg 3, unique for each plot.
+ 2 Species                      string      Resolved species name.
+ 3 Original_species             string      Original species name (before taxonomic resolution).
+ 4 Original_abundance           double      Abundance value in original data, or as transformed from original Cover code to quantitative values.
+ 5 Abundance_scale              string      Abundance scale in original data. Possible values are: CoverPerc: Cover percentage, pa: Presence absence, x_BA: Basal area, x_IC: Individual count, x_SC: Stem count, x_IV: Relative importance, x_RF: Relative frequency)
+ 6 Relative_cover               double      Abundance/Cover of each species after being normalized to 1 in each plot.
+
+
+# header.txt
+   Variables                    Data type     Unit        Description
+ 1 PlotObservationID            integer                   Plot identifier provided by Turboveg 3, unique for each plot.
+ 2 GIVD_ID                      string                    GIVD code of source dataset.
+ 3 Dataset                      string                    Name of source dataset.
+ 4 Continent                    string                    Continent.
+ 5 Country                      string                    Original country name in Turboveg 3.
+ 6 Biome                        string                    Biome, as defined in Bruelheide et al. 2019 - JVS.
+ 7 Date_of_recording            date         YYYY-MM-DD   Date of recording 
+ 8 Latitude                     double       °            Degrees, WGS84.
+ 9 Longitude                    double       °            Degrees, WGS84.
+ 10 Location_uncertainty        double       m            Uncertainty of geographic coordinates
+ 11 Releve_area                 double       m^2          Size of the sampling plot
+ 12 Plant_recorded              string                    Group of plants recorded in the field. In case of NA, it is mostly safe to assume that all vascular plants were recorded.
+ 13 Elevation                   integer      m a.s.l.     Elevation of plot 
+ 14 Aspect                      integer      °            Topographical aspect of plot (in degrees)
+ 15 Slope                       integer      °            Topographical slope of plot (in degrees)
+ 16 is_forest                   boolean      TRUE/FALSE   As estimated based on species growth forms. 
+ 17 ESY                         string                    EUNIS Habitat Classification Expert system, as described in Chytrý et al. 2020.
+ 18 Naturalness                 integer                   1=Natural, 2=Semi-natural.
+ 19 Forest                      boolean      TRUE/FALSE   As defined by data contributors
+ 20 Shrubland                   boolean      TRUE/FALSE   As defined by data contributors
+ 21 Grassland                   boolean      TRUE/FALSE   As defined by data contributors
+ 22 Wetland                     boolean      TRUE/FALSE   As defined by data contributors
+ 23 Sparse_vegetation           boolean      TRUE/FALSE   As defined by data contributors
+ 24 Cover_total                 integer      %            Total cover of vegetation
+ 25 Cover_tree_layer            double       %            Total cover of the tree layer
+ 26 Cover_shrub_layer           double       %            Total cover of the shrub layer
+ 27 Cover_herb_layer            double       %            Total cover of the herb layer
+ 28 Cover_moss_layer            integer      %            Total cover of the moss layer
+ 29 Cover_lichen_layer          integer      %            Total cover of the lichen layer
+ 30 Cover_algae_layer           integer      %            Total cover of the algae layer
+ 31 Cover_litter_layer          integer      %            Total cover of the litter layer
+ 32 Cover_bare_rocks            integer      %            Total cover of bare rocks
+ 33 Cover_cryptogams            integer      %            Total cover of cryptogams
+ 34 Cover_bare_soil             double       %            Total cover of bare soil
+ 35 Height_trees_highest        double       m            Height of the highest tree layer
+ 36 Height_trees_lowest         double       m            Height of the lowest tree layer
+ 37 Height_shrubs_highest       double       m            Height of the highest shrub layer
+ 38 Height_shrubs_lowest        double       m            Height of the lowest shrub layer
+ 39 Height_herbs_average        double       cm           Average height of the herb layer
+ 40 Height_herbs_lowest         integer      cm           Average height of lowest herb layer
+ 41 Height_herbs_highest        integer      cm           Average height of highest herb layer
+ 42 SoilClim_PC1                double       unitless     Loading on Principal Component axis 1 based on climate and soil conditions
+ 43 SoilClim_PC2                double       unitless     Loading on Principal Component axis 2 based on climate and soil conditions
+ 44 Resample_1                  boolean      TRUE/FALSE   Whether a plot belongs to resampling iteration 1
+ 45 Resample_2                  boolean      TRUE/FALSE   Whether a plot belongs to resampling iteration 2
+ 46 Resample_3                  boolean      TRUE/FALSE   Whether a plot belongs to resampling iteration 3
+ 47 Resample_1_consensus        boolean      TRUE/FALSE   Whether a plot belongs to resampling iteration 1 after the inclusion of replacement plot
+
+
+# metadata.txt
+   Variables                    Data type   Description
+ 1 PlotObservationID            integer     Plot identifier provided by Turboveg 3, unique for each plot.
+ 2 GIVD_ID                      string      GIVD code of source dataset. 
+ 3 DB_BIBTEXKEY                 string      BIBTEXT ID for the bibliographic reference for the dataset containing the plot - corresponds to BIBTEXKEY in reference.oa and sPlotOpen_references.bib
+ 4 Releve_author                string      Author or surveyor names (1)
+ 5 Releve_coauthors             string      Author or surveyor names (2)
+ 6 Biblioreference              string      Full bibliographic reference where the plots were described 
+ 7 BIBTEXKEY                    string      BIBTEXT ID for the bibliographic reference describing the plot. It corresponds to BIBTEXKEY in reference.oa and sPlotOpen_references.bib
+ 8 Nr_table_in_publ             string      Identifier of the table containing the plot in the original publication. 
+ 9 Nr_releve_in_table           string      Plot identifier in the table containing the plot in the original publication. 
+ 10 Original_nr_in_database     string      Original identifier in the database containing the plot.
+ 11 Original_plotID             string      Original plot ID in the database containing the plot.
+ 12 Original_subplotID          string      Original subplot ID in the database containing the plot. Relevant for plots nested inside larger plots. 
+ 13 Project                     string      Name of the project in which plot data were collected. 
+ 14 Remarks                     string      Notes or remarks
+ 15 GUID                        string      Unique identifier produced by Turboveg when the vegetation plot was first stored.

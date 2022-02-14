@@ -1,0 +1,1 @@
++proj=cea +datum=WGS84 +lat_ts=-30
