@@ -4,6 +4,36 @@ import matplotlib.pyplot as plt
 from src import cust_func
 
 
+# random place for code for plotting Topaza node age histograms
+# factor = 0.05
+# fig = plt.figure(figsize=(10,4))
+# a = np.random.normal(15*factor,2*factor,10000)
+# #b = np.random.normal(5*factor,1.2*factor,10000)
+# c = np.random.normal(25*factor,2*factor,10000)
+# plt.hist(a,np.arange(0,30*factor,0.1*factor),zorder=0)
+# #plt.axvline(np.mean(a),color='black',linestyle='--',zorder=1)
+# #plt.hist(b,np.arange(0,30*factor,0.1*factor),zorder=0)
+# #plt.axvline(np.mean(b),color='black',linestyle='--',zorder=1)
+# plt.hist(c,np.arange(0,30*factor,0.1*factor),zorder=0)
+# #plt.axvline(np.mean(c),color='black',linestyle='--',zorder=1)
+# #plt.axvline(14*factor,color='red',zorder=1)
+# plt.xticks([])
+# plt.yticks([])
+# plt.show()
+# fig.savefig('/Users/tobiasandermann/Desktop/hist.png',transparent=True)
+#
+#
+# name = ['a','b','c']
+# price = [0.3,0.1,0.4]
+# plt.barh(np.arange(len(price)),price,0.1)
+# plt.show()
+
+
+
+
+
+
+
 
 #___________________________PLOTSIZE INFO_______________________________
 plotsize_info_file = 'data/true_div_data/true_diversity_data_proj_aus.txt'
